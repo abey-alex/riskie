@@ -1,0 +1,8 @@
+{
+    "ext": "ts tsx",
+    "ignore": ["**/*.(test|spec).(ts|js)"],
+    "watch": [
+        "{data|helpers|middlewares|modules|routes|services|types}/**/*.ts"
+    ],
+    "exec": "yarn build && node dist/index.js"
+}

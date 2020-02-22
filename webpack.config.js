@@ -1,11 +1,12 @@
 // Load dotenv configurations
 require('dotenv').config();
 
-const paths = require('../../config/paths');
+const paths = require('./config/paths');
 
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const WebpackBar = require('webpackbar');
 
 const webpackConfig = {
     name: 'server',
@@ -13,7 +14,7 @@ const webpackConfig = {
     mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
     devtool: 'cheap-module-source-map',
     entry: {
-        index: paths.server('index')
+        index: [paths.base(`index`)]
     },
     output: {
         filename: `[name].js`,
@@ -47,6 +48,8 @@ const webpackConfig = {
         }),
 
         new CaseSensitivePathsPlugin(),
+
+        new WebpackBar({ name: 'server' }),
     ],
 };
 

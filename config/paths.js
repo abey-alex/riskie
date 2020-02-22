@@ -9,7 +9,6 @@ function base() {
 
 module.exports = {
     root,
-    client: base.bind(null, 'packages/client'),
-    server: base.bind(null, 'packages/server'),
+    base: base.bind(null, './'),
     dist: base.bind(null, 'dist')
 };

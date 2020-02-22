@@ -13,10 +13,11 @@
                 "cwd": "babelrc",
                 "alias": {
                     "^helpers/(.+)": "./helpers/\\1",
-                    "^middlwares/(.+)": "./middlwares/\\1",
+                    "^middlewares/(.+)": "./middlewares/\\1",
                     "^modules/(.+)": "./modules/\\1",
                     "^routes/(.+)": "./routes/\\1",
                     "^services/(.+)": "./services/\\1",
+                    "^types/(.+)": "./types/\\1",
                     "^views/(.+)": "./views/\\1"
                 }
             }
