@@ -12,8 +12,6 @@
                 ],
                 "cwd": "babelrc",
                 "alias": {
-                    "^@config/(.+)": "../../config/\\1",
-                    "^@client/(.+)": "../client/\\1",
                     "^helpers/(.+)": "./helpers/\\1",
                     "^middlewares/(.+)": "./middlewares/\\1",
                     "^modules/(.+)": "./modules/\\1",

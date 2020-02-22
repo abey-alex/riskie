@@ -1,19 +1,20 @@
 // Load dotenv configurations
 require('dotenv').config();
 
-const paths = require('../../config/paths');
+const paths = require('./config/paths');
 
+const webpack = require('webpack');
+const nodeExternals = require('webpack-node-externals');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-const ManifestPlugin = require('webpack-manifest-plugin');
 const WebpackBar = require('webpackbar');
 
 const webpackConfig = {
-    name: 'client',
-    target: 'web',
+    name: 'server',
+    target: 'node',
     mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
     devtool: 'cheap-module-source-map',
     entry: {
-        app: paths.client('index')
+        index: [paths.base(`index`)]
     },
     output: {
         filename: `[name].js`,
@@ -23,7 +24,7 @@ const webpackConfig = {
     module: {
         rules: [
             {
-                test: /\.tsx$/,
+                test: /\.ts$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 options: {
@@ -33,16 +34,23 @@ const webpackConfig = {
         ],
     },
     resolve: {
-        extensions: ['.tsx', '.js', '.json'],
+        extensions: ['.ts', '.js', '.json'],
+    },
+    externals: [nodeExternals()],
+    node: {
+        console: true,
     },
     plugins: [
-        new CaseSensitivePathsPlugin(),
-        new WebpackBar({ name: 'client' }),
-        new ManifestPlugin({
-            fileName: 'asset-manifest.json',
+        new webpack.BannerPlugin({
+            banner: 'require("source-map-support").install();',
+            raw: true,
+            entryOnly: false,
         }),
+
+        new CaseSensitivePathsPlugin(),
+
+        new WebpackBar({ name: 'server' }),
     ],
 };
 
 module.exports = webpackConfig;
-exports.default = webpackConfig;
