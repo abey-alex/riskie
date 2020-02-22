@@ -4,6 +4,8 @@ require('dotenv').config();
 const paths = require('../../config/paths');
 
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
+const WebpackBar = require('webpackbar');
 
 const webpackConfig = {
     name: 'client',
@@ -35,7 +37,12 @@ const webpackConfig = {
     },
     plugins: [
         new CaseSensitivePathsPlugin(),
+        new WebpackBar({ name: 'client' }),
+        new ManifestPlugin({
+            fileName: 'asset-manifest.json',
+        }),
     ],
 };
 
 module.exports = webpackConfig;
+exports.default = webpackConfig;

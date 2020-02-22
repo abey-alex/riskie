@@ -4,6 +4,6 @@ module.exports = (api) => {
     api.cache(true);
 
     return {
-        babelrcRoots: ['.', 'src/*']
+        babelrcRoots: ['.', 'packages/*']
     };
 };

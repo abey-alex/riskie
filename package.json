@@ -1,50 +1,57 @@
 {
   "name": "riskie",
   "version": "1.0.0",
+  "private": true,
   "description": "Fraud detection",
-  "main": "index.js",
-  "scripts": {
-    "build": "run-s build:client build:server",
-    "build:client": "webpack-cli --config packages/client/webpack.config.js",
-    "build:server": "webpack-cli --config packages/server/webpack.config.js"
+  "homepage": "https://github.com/abey-alex/riskie#readme",
+  "bugs": {
+    "url": "https://github.com/abey-alex/riskie/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/abey-alex/riskie.git"
   },
-  "author": "Abey Alex",
   "license": "ISC",
-  "private": true,
-  "bugs": {
-    "url": "https://github.com/abey-alex/riskie/issues"
-  },
-  "homepage": "https://github.com/abey-alex/riskie#readme",
+  "author": "Abey Alex",
+  "main": "index.js",
   "workspaces": [
     "packages/*"
   ],
-  "engines": {
-    "node": ">=8.0.0",
-    "yarn": "^1.6.0"
+  "scripts": {
+    "clean": "rm -rf dist coverage test-report.xml",
+    "build": "run-s build:client build:server",
+    "build:client": "webpack-cli --config packages/client/webpack.config.js",
+    "build:server": "webpack-cli --config packages/server/webpack.config.js",
+    "dev": "nodemon",
+    "start": "node dist/index.js",
+    "test": "run-s clean test:jest",
+    "test:jest": "jest --config jest.config.js --no-cache --coverage"
   },
   "dependencies": {
     "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
-    "babel-loader": "^8.0.6",
+    "@types/jest": "^25.1.3",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "babel-plugin-module-resolver": "^4.0.0",
     "@babel/preset-env": "^7.8.4",
-    "case-sensitive-paths-webpack-plugin": "^2.3.0",
     "@babel/preset-typescript": "^7.8.3",
+    "babel-jest": "^25.1.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "case-sensitive-paths-webpack-plugin": "^2.3.0",
     "husky": "^4.2.3",
     "jest": "^25.1.0",
-    "npm-run-all": "^4.1.5",
     "nodemon": "^2.0.2",
+    "npm-run-all": "^4.1.5",
     "prettier": "^1.19.1",
     "typescript": "^3.8.2",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11",
     "webpackbar": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=8.0.0",
+    "yarn": "^1.6.0"
   }
 }

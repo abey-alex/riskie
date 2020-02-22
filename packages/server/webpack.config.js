@@ -6,6 +6,7 @@ const paths = require('../../config/paths');
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const WebpackBar = require('webpackbar');
 
 const webpackConfig = {
     name: 'server',
@@ -47,6 +48,8 @@ const webpackConfig = {
         }),
 
         new CaseSensitivePathsPlugin(),
+
+        new WebpackBar({ name: 'server' }),
     ],
 };
 

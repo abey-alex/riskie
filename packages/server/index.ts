@@ -10,6 +10,8 @@ if (result.error) {
 import express from 'express';
 import helmet from 'helmet';
 
+import apiRoutes from 'routes/api';
+
 const isProduction = process.env.NODE_ENV === 'production';
 const host = process.env.HOST || 'localhost';
 const port = process.env.PORT || 3001;
@@ -18,7 +20,7 @@ const app = express();
 app.disable('x-powered-by');
 app.use(helmet());
 
-
+app.use('/api', apiRoutes);
 
 app.use((err: string, req: express.Request, res: express.Response, next: express.NextFunction) => {
   if (!isProduction) {
