@@ -1,0 +1,27 @@
+{
+    "presets": [
+        ["@babel/preset-env", { "targets": { "node": 10 } }],
+        "@babel/preset-typescript"
+    ],
+    "plugins": [
+        [
+            "module-resolver",
+            {
+                "root": [
+                    "./"
+                ],
+                "cwd": "babelrc",
+                "alias": {
+                    "^helpers/(.+)": "./helpers/\\1",
+                    "^middlwares/(.+)": "./middlwares/\\1",
+                    "^modules/(.+)": "./modules/\\1",
+                    "^routes/(.+)": "./routes/\\1",
+                    "^services/(.+)": "./services/\\1",
+                    "^views/(.+)": "./views/\\1"
+                }
+            }
+        ],
+        "@babel/proposal-class-properties",
+        "@babel/proposal-object-rest-spread"
+    ]
+}

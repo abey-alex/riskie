@@ -1,0 +1,33 @@
+{
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "extends": [
+        "standard",
+        "standard-react",
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "prettier",
+        "prettier/react"
+    ],
+    "plugins": [
+        "babel",
+        "react",
+        "promise",
+        "prettier",
+        "emotion"
+    ],
+    "env": {
+        "browser": true,
+        "node": true,
+        "jest": true
+    }
+}

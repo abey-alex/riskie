@@ -1,0 +1,28 @@
+{
+  "processors": [
+    [
+      "stylelint-processor-styled-components",
+      {
+        "parserPlugins": [
+          "doExpressions",
+          "dynamicImport",
+          "objectRestSpread",
+          "classProperties",
+          "classProperties",
+          "jsx",
+          "exportDefaultFrom"
+        ]
+      }
+    ]
+  ],
+
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-styled-components"
+  ],
+
+  "rules": {
+    "font-family-no-missing-generic-family-keyword": null,
+    "length-zero-no-unit": true
+  }
+}
