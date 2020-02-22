@@ -26,6 +26,11 @@
     "test": "run-s clean test:jest",
     "test:jest": "jest --config jest.config.js --no-cache --coverage"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test"
+    }
+  },
   "dependencies": {
     "@graphql-modules/core": "^0.7.14",
     "apollo-server-express": "^2.10.1",
