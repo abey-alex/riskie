@@ -36,7 +36,7 @@ describe('TransactionService', () => {
 
     it('should find child nodes for a transaction at any level', () => {
         const transactionService: TransactionService = new TransactionService()
-        const transaction: Transaction | null= transactionService.findTransactionById(
+        const transaction: Transaction | null = transactionService.findTransactionById(
             '5c868b2213b36f773efcee81',
         )
         expect(transaction).toBeDefined()

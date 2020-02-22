@@ -24,6 +24,5 @@ describe('deepClone', () => {
         expect(b!.connectionInfo!.type).toEqual(b!.connectionInfo!.type)
         b!.connectionInfo!.type = `object::b`
         expect(a!.connectionInfo!.type).not.toEqual(b!.connectionInfo!.type)
-
     })
 })
