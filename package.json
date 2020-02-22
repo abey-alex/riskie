@@ -21,7 +21,8 @@
     "dev": "nodemon",
     "lint": "tslint '{helpers|routes|services|types|views}/**/*.ts'",
     "prettier": "prettier --write '**/*.ts'",
-    "start": "run-s build start:server",
+    "setup:env": "cp .env.example .env",
+    "start": "npm ci && run-s setup:env build start:server",
     "start:server": "node dist/index.js",
     "test": "run-s clean test:jest",
     "test:jest": "jest --config jest.config.js --no-cache --coverage"
