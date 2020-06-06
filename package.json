@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@graphql-modules/core": "^0.7.14",
-    "apollo-server-express": "^2.10.1",
+    "apollo-server-express": "^2.14.2",
     "bunyan": "^1.8.12",
     "compression": "^1.7.4",
     "dotenv": "^8.2.0",
